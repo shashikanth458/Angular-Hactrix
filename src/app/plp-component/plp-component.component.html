@@ -1,0 +1,37 @@
+<div class="row pdp">
+  plp-component works!
+  <a routerLink='/pdp'>PDP</a>
+  <label>
+    Key
+     <input type="text"  [(ngModel)]="key"/>
+    </label>
+    <label>
+        value
+         <input type="text"  [(ngModel)]="value"/>
+        </label>
+        <button (click)="addKey()">Add Key</button>
+        <label>
+            Key
+             <input type="text"  [(ngModel)]="requiredKey"/>
+            </label>
+            <label *ngIf="requiredValue">
+                retiredValue-->{{requiredValue|capitalize}}
+                </label>
+                <button (click)="getValue()">getValue</button>
+
+                <app-rating rating="1" (feedBack)="getFeedBack($event)"></app-rating>
+                
+                <article *ngFor="let product of productsList" [ngClass]="{'ff':true}">
+                    <img [src]="product.imageUrl"/>
+                  </article>
+                  
+                  <ngb-rating></ngb-rating>
+<!--                       
+                      <pre>
+                      Selected: <b>{{selected}}</b>
+                      Hovered: <b>{{hovered}}</b>
+                      </pre>
+                      <button class="btn btn-sm btn-outline-{{readonly ? 'danger' : 'success'}}" (click)="readonly = !readonly">
+                        {{ readonly ? "readonly" : "editable"}}
+                      </button> -->
+                </div>

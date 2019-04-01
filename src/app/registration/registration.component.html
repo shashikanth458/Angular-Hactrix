@@ -1,0 +1,60 @@
+<div class="registration-container">
+    <form class="registration-form-cotnainer">
+        <div class="form-container">
+        <div class="form-group">
+          <input type="text" class="form-control" 
+                placeholder="First Name" 
+                name="firstname"
+                [(ngModel)]="loanAccountId1"
+                aria-describedby="emailHelp">
+    
+                <span *ngIf="errMsg" class="errmsg">{{errMsg}}</span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" 
+                  placeholder="Last Name" 
+                  name="lastname"
+                  [(ngModel)]="loanAccountId"
+                  aria-describedby="emailHelp">
+      
+                  <span *ngIf="errMsg" class="errmsg">{{errMsg}}</span>
+          </div>
+          <div class="form-group">
+              <input type="password" class="form-control" 
+                    placeholder="password" 
+                    name="loanAccountId"
+                    id="exampleInputEmail1" 
+                    [(ngModel)]="loanAccountId2"
+                    aria-describedby="emailHelp">
+        
+                    <span *ngIf="errMsg" class="errmsg">{{errMsg}}</span>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" 
+                      placeholder="Email" 
+                      name="Email"
+                      [(ngModel)]="loanAccountId3"
+                      aria-describedby="emailHelp">
+          
+                      <span *ngIf="errMsg" class="errmsg">{{errMsg}}</span>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" 
+                        placeholder="Phone no" 
+                        name="phone no"
+                        [(ngModel)]="loanAccountId4"
+                        aria-describedby="emailHelp">
+            
+                        <span *ngIf="errMsg" class="errmsg">{{errMsg}}</span>
+                </div>
+                <div class="form-group">
+                  <input type="text" 
+                         class="form-control" placeholder="D.O.B" readonly='true' ngbDatepicker #d="ngbDatepicker" (dateSelect)="onDateSelect($event)"/>
+                  <img (click)="d.toggle()" class="date-pick-image" src="../assets/datePicker.png"/>
+                </div>
+               
+      
+        <button type="submit" class="btn btn-primary submit-btn" (change)="clearErrMsg()" (click)="formSubmit()">Submit</button>
+        </div>
+      </form>
+  </div>

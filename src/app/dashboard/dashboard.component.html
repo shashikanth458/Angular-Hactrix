@@ -1,0 +1,89 @@
+<div class="dashboard-container">
+  <h6 class="header">
+      <span class="pull-right user-id">UserID: {{userId}}</span>
+      <a routerLink='/' class="pull-right user-id">Log Out</a>
+    </h6>
+    <div>
+        <button (click)="openForm()" class="creat-btn">Request Loan</button>
+      </div>
+      <div class="loan-display-container">
+          <div *ngFor="let loan of loanDetails" class="loan-content"> 
+                <div>
+                  <label>
+                  Loan Id: {{loan.loanId}}
+                  </label>
+                  <label>
+                      Status: {{loan.status}}
+                      </label>
+                      <label>
+                          loan duration: {{loan.loanDuration}} Years
+                          </label>
+                          <label>
+                              Interest rate: {{loan.interestRate}} %
+                              </label>
+            </div>
+        </div>
+        </div>
+     <div class="loan-request-container" *ngIf="isPopUpOpen"> 
+      <div class="loan-request-form">
+          <h3>Loan Request form
+               <img  src="../assets/cross-icon.png" width="30px" class="pull-right" (click)="closeForm()"/>
+          </h3>
+          <form>
+              <div class="form-container">
+              <div class="form-group">
+                  <input type="text" class="form-control" 
+                        placeholder="Annual Income" 
+                        name="annualincome"
+                        id="annualincome" 
+                        [(ngModel)]="annualIncome"
+                        aria-describedby="emailHelp">
+            
+                        <span *ngIf="errMsg" class="errmsg">{{errMsg}}</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" 
+                          placeholder="Pancard" 
+                          name="pancard"
+                          id="exampleInputEmail1" 
+                          [(ngModel)]="pancardId"
+                          aria-describedby="emailHelp">
+              
+                          <span *ngIf="errMsg" class="errmsg">{{errMsg}}</span>
+                  </div>
+                  <div class="form-group">
+                    
+                    <select  class='form-control' 
+                          [(ngModel)]='selectedCity'
+                          name="city">
+                          <option *ngFor="let city of cityList">
+                            {{city}}
+                          </option>
+                </select>
+                </div>
+                <div class="form-group">
+                
+                <select  class='form-control' 
+                          [(ngModel)]='selectedMaritalStatus'
+                          name="maritalStatus">
+                          <option *ngFor="let mStatus of maritalList">
+                            {{mStatus}}
+                          </option>
+                </select>
+                </div>
+                <div class="form-group">
+                
+                <select  class='form-control' 
+                [(ngModel)]='selectedEmploymentType'
+                name="employeeType">
+                <option *ngFor="let empType of employmentType">
+                  {{empType}}
+                </option>
+              </select>
+              </div>
+              <button type="submit" class="btn btn-primary submit-btn" (change)="clearErrMsg()" (click)="formSubmit()">Submit</button>
+              </div>
+            </form>
+        </div>
+       </div> 
+</div>
